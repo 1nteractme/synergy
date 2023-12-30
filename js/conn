@@ -1,0 +1,15 @@
+$(document).ready(function(){
+    $.ajax({
+        url: 'index.php', 
+        type: 'POST',
+        data: {phpVariable: "<?php echo $text_to_type; ?>"},
+        success: function(response) {
+            const jsVariable = response;
+            console.log('Success. Response:', response);
+            console.log('jsVariable:', jsVariable);
+        },
+        error: function(xhr, status, error) {
+            console.error("AJAX error: " + status, error);
+        }
+    });
+});
