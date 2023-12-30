@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            
+            <p id="typing-text"></p>
+
+            <form class="input-field"
+                  id="choosing"
+                  action="index.php"
+                  method="post"
+                  onclick="removeParagraph('choose', 'choose-text')">
+
+                <input id="choose"
+                       class="field"
+                       type="text"
+                       name="choose">
+
+                <p id="choose-text" 
+                       class="field-text">/ type -reg or -log</p>
+            </form>
+        </div>        
+    </div>
+
+    <script>
+        var textToType = "<?php echo $text_to_type; ?>";
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

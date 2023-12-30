@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            
+            <p id="typing-text"></p>
+
+            <form class="input-field"
+                  id="auth"
+                  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"
+                  method="post">
+
+                <div class="field-box"
+                     id="field-box-email"
+                     onclick="removeParagraph('email-input', 'email-text')">
+
+                    <input id="email-input" 
+                           class="field"
+                           type="email"
+                           name="email"
+                           required
+                           oninput="checkInputContent('email-input', 'field-box-password')">
+
+                    <p id="email-text" 
+                       class="field-text">/ type your e-mail</p>
+                </div>
+
+                <div class="field-box" 
+                     id="field-box-password"
+                     onclick="removeParagraph('password-input', 'password-text')">
+
+                    <input id="password-input"
+                           class="field"
+                           type="password"
+                           name="password"
+                           required
+                           oninput="checkInputContent('password-input', 'empty-box')">
+
+                    <p id="password-text"
+                       class="field-text">/ type your password</p>
+                </div>
+
+                <div id="empty-box" style="display: none !important; position: absolute; top: 0;
+                left: 0;"></div>
+                <!--<input type="submit" name="submit" value="Войти">-->
+            </form>
+        </div>        
+    </div>
+
+    <script>
+        var textToType = "<?php echo $text_to_type_email; ?>";
+        var textToTypePassword = "<?php echo $text_to_type_password; ?>";
+
+        var firstInput = "email";
+        var secondInput = "password";
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

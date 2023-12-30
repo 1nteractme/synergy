@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;900&display=swap");
+:root {
+  --five:0.260vw;
+  --twelve-px: 0.625vw;
+  --twenty-px: 1.042vw;
+  --twenty-four-px: 1.250vw;
+  --fourty-px: 2.083vw;
+  --fourty-eight-px: 2.500vw;
+  --one-hundered-px: 5.208vw;
+  --one-thousand-px: 62.500vw;
+  --max-weight: 100.000vw;
+  --max-height: 100.000vh;
+}
+
+* {
+  border: none;
+  overflow: hidden;
+  cursor: default;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  font-family: "Inconsolata", monospace;
+  font-weight: 400;
+  background-color: #1f1f1f;
+  color: #eee;
+}
+* ::-moz-selection {
+  background-color: #eee;
+  color: #1f1f1f;
+}
+* ::selection {
+  background-color: #eee;
+  color: #1f1f1f;
+}
+* :focus {
+  outline: none;
+}
+
+.header {
+  z-index: 1;
+  position: absolute;
+  top: var(--one-hundered-px);
+  left: var(--one-hundered-px);
+  display: flex;
+  flex-direction: column;
+}
+.header .title {
+  font-size: var(--fourty-px);
+  font-weight: 900;
+  display: flex;
+  margin-bottom: var(--twelve-px);
+}
+.header .span {
+  margin-left: var(--twenty-px);
+  font-weight: 200;
+}
+.header a {
+  font-size: var(--twenty-four-px);
+  color: #a5a5a5;
+  font-weight: 900;
+}
+.header a:hover {
+  cursor: pointer;
+  color: #eee;
+  transition: all 1s;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: var(--max-weight);
+  height: var(--max-height);
+  font-size: var(--fourty-eight-px);
+}
+.main .container {
+  width: var(--one-thousand-px);
+  height: auto;
+}
+.main .container #typing-text {
+  text-align: center;
+  line-height: 125%;
+  margin-bottom: var(--twenty-px);
+}
+.main .container .input-field {
+  display: flex;
+  width: 100%;
+  font-size: var(--fourty-px);
+  flex-direction: column;
+}
+.main .container .input-field #choosing {
+  height: var(--fourty-eight-px);
+}
+.main .container .input-field #auth {
+  align-items: center;
+  height: auto;
+}
+.main .container .input-field .field-box {
+  height: var(--fourty-eight-px);
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.main .container .input-field #field-box-password {
+  position: relative;
+  margin-top: var(--twenty-px);
+  display: none;
+}
+.main .container .input-field .field {
+  height: 100%;
+  width: 100%;
+  color: #1f1f1f;
+  font-size: var(--fourty-px);
+}
+.main .container .input-field .field:hover {
+  cursor: pointer;
+}
+.main .container .input-field .field-text {
+  color: #A5A5A5;
+  position: absolute;
+}
+.main .container .input-field .field-text:hover {
+  cursor: pointer;
+}
+
+.background {
+  display: none;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: var(--max-weight);
+  height: auto;
+}
+.background #video {
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=style.css.map */
