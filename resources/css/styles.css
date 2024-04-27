@@ -168,6 +168,78 @@
 .main .container .emailData {
   margin-bottom: var(--fourty-px);
 }
+.main .container .ChangeData {
+  width: 50%;
+  height: 100%;
+  align-items: center;
+}
+.main .container .popup {
+  position: relative;
+  width: 90%;
+  height: 100%;
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--twelve-px);
+}
+.main .container .popup .form {
+  width: 90%;
+  height: 90%;
+  background-color: transparent;
+}
+.main .container .popup .form .fieldContainer {
+  background-color: transparent;
+  justify-content: space-between;
+}
+.main .container .popup .form .input {
+  padding: var(--five-px);
+  background-color: transparent;
+  border: var(--two-px) solid var(--black);
+  font-size: var(--twenty-px);
+}
+.main .container .popup .form .button {
+  font-size: var(--twenty-four-px);
+  border-radius: var(--five-px);
+}
+.main .container .btnCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: var(--fourty-px);
+  z-index: 1;
+  width: auto;
+  height: var(--fourty-eight-px);
+  transition: all 0.5s ease;
+  background-color: var(--white);
+  border-radius: var(--fourty-eight-px);
+  padding-right: var(--twenty-px);
+  padding-left: var(--twenty-px);
+}
+.main .container .btnCircle p {
+  color: var(--black);
+  font-size: var(--twenty-four-px);
+  font-weight: 900;
+  background-color: transparent;
+}
+.main .container button:hover {
+  background-color: #A5A5A5;
+}
+.main .container .active {
+  display: flex;
+  flex-direction: column;
+}
+.main .container .inactive {
+  display: none;
+}
+.main .container .switcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
 
 .background {
   display: none;

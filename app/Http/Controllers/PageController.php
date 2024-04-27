@@ -73,7 +73,18 @@ class PageController extends Controller
                                      'passport_series' => $passport_series,
                                      'passport_number' => $passport_number,
 
-                                     'email' => $email]);
+                                     'email' => $email,
+                                     'field_email' => 'почта',
+                                     'field_password' => 'пароль',
+     
+                                     'filed_first_name' => 'имя',
+                                     'filed_second_name' => 'фамилия',
+                                     'filed_last_name' => 'отчество',
+     
+                                     'filed_passport_series' => 'серия',
+                                     'filed_passport_number' => 'номер',
+     
+                                     'button_text' => 'обновить данные']);
     }
 
     public function logCheck(Request $request)
@@ -106,7 +117,7 @@ class PageController extends Controller
     public function regCheck(Request $request)
     {
         $valid = $request->validate([
-            'email' => 'required|email|max:30|unique:users', 
+            'email' => 'required|email|max:30|unique:data', 
             'pass' => 'required|min:8',
 
             'first_name' => 'required|max:30',
@@ -131,4 +142,47 @@ class PageController extends Controller
 
         return redirect()->route('login');
     }
+
+    public function changeData(Request $request)
+{
+    $userId = session('userId');
+    $user = Data::find($userId);
+
+    if ($user) {
+        $validatedData = $request->validate([
+            'email' => 'nullable|email|max:30|unique:data,email,'.$userId,
+            'first_name' => 'nullable|max:30',
+            'second_name' => 'nullable|max:30',
+            'last_name' => 'nullable|max:30',
+            'passport_series' => 'nullable|min:4|max:4',
+            'passport_number' => 'nullable|min:6|max:6'
+        ]);
+
+        if (isset($validatedData['email'])) {
+            $user -> email = $validatedData['email'];
+        }
+        if (isset($validatedData['first_name'])) {
+            $user -> first_name = $validatedData['first_name'];
+        }
+        if (isset($validatedData['second_name'])) {
+            $user -> second_name = $validatedData['second_name'];
+        }
+        if (isset($validatedData['last_name'])) {
+            $user -> last_name = $validatedData['last_name'];
+        }
+        if (isset($validatedData['passport_series'])) {
+            $user -> passport_series = $validatedData['passport_series'];
+        }
+        if (isset($validatedData['passport_number'])) {
+            $user -> passport_number = $validatedData['passport_number'];
+        }
+
+        $user -> save();
+
+        return redirect() -> route('user') -> with('success', 'Данные успешно изменены.');
+    } else {
+        return with('error', 'Эта почта занята!');
+        // return redirect() -> back() -> withErrors(['email' => 'Эта почта занята!']);
+    }
+}
 }

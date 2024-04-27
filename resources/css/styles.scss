@@ -173,6 +173,83 @@
         .emailData{
             margin-bottom: var(--fourty-px);
         }
+
+        .ChangeData{
+            width: 50%;
+            height: 100%;
+            align-items: center;
+        }
+
+        .popup{
+            position: relative;
+            width: 90%;
+            height: 100%;
+            background-color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--twelve-px);
+            .form{
+                width: 90%;
+                height: 90%;
+                background-color: transparent;
+                .fieldContainer{
+                    background-color: transparent;
+                    justify-content: space-between;
+                    
+                }
+                .input{
+                    padding: var(--five-px);
+                    background-color: transparent;
+                    border: var(--two-px) solid var(--black);
+                    font-size: var(--twenty-px);
+                }
+                .button{
+                    font-size: var(--twenty-four-px);
+                    border-radius: var(--five-px);
+                }
+            }
+        }
+
+        .btnCircle{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: var(--fourty-px);
+            z-index: 1;
+            width: auto;
+            height: var(--fourty-eight-px);
+            transition: all 0.5s ease;
+            background-color: var(--white);
+            border-radius: var(--fourty-eight-px);
+            padding-right: var(--twenty-px);
+            padding-left: var(--twenty-px);
+            p{
+                color: var(--black);
+                font-size: var(--twenty-four-px);
+                font-weight: 900;
+                background-color: transparent;
+            }
+        }
+        button:hover{
+            background-color: #A5A5A5;
+        }
+
+        .active {
+            display: flex;
+            flex-direction: column;
+        }
+        .inactive {
+            display: none;
+        }
+        .switcher{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
     }
 }
 

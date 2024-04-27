@@ -11,3 +11,4 @@ Route::post('/regcheck', 'PageController@regCheck');
 Route::post('/logcheck', 'PageController@logCheck');
 
 Route::get('/user', 'PageController@personal') -> name('user');
+Route::post('/changedata', 'PageController@changeData');
