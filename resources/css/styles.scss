@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;900&display=swap');
+
+:root {
+    //values
+    --five-px:0.260vw;
+    --two-px: 0.1042vw;
+    --twelve-px: 0.625vw;
+    --twenty-px: 1.042vw;
+    --twenty-four-px: 1.250vw;
+    --fourty-px: 2.083vw;
+    --fourty-eight-px: 2.500vw;
+    --one-hundered-px: 5.208vw;
+    --one-thousand-px: 62.500vw;
+    --max-weight: 100.000vw;
+    --max-height: 100.000vh;
+    //colors
+    --white: #eee;
+    --black: #1f1f1f;
+    --gray: #A5A5A5;
+  }
+
+* {
+    border: none;
+    overflow: hidden;
+    cursor: default;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inconsolata', monospace;
+    font-weight: 400;
+    background-color: var(--black);
+    color: var(--white);
+    ::selection {
+        background-color: var(--white);
+        color: var(--black);
+    }
+    :focus{
+        outline: none;
+    } 
+}
+
+.header{
+    z-index: 1;
+    position: absolute;
+    top: var(--one-hundered-px);
+    left: var(--one-hundered-px);
+    display: flex;
+    flex-direction: column;
+    .title{
+        font-size: var(--fourty-px);
+        font-weight: 900;
+        display: flex; 
+        margin-bottom: var(--twelve-px);
+    }
+    .span{
+        margin-left: var(--twenty-px);
+        font-weight: 200;
+    }
+    a{
+        font-size: var(--twenty-four-px);
+        color: var(--gray);
+        font-weight: 900;
+        transition: all 1s ease;
+    }
+    a:hover{
+        cursor: pointer;
+        color: var(--white);
+    }
+}
+
+.main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+    width: var(--max-weight);
+    height: var(--max-height);
+    font-size: var(--fourty-eight-px);
+
+    .container{
+        width: var(--one-thousand-px);
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        .button{
+            transition: all 1s ease;
+            font-size: var(--fourty-px);
+            padding: var(--five-px) var(--twenty-px) var(--five-px) var(--twenty-px);
+            border-radius: var(--five-px);
+            border: solid var(--white) var(--two-px);
+        }
+        .button:hover{
+            background-color: var(--white);
+            border: solid var(--black) var(--two-px);
+            color: var(--black);
+        }
+
+        #typing-text{
+            text-align: center;
+            line-height: 125%;
+            margin-bottom: var(--twenty-px);
+        }
+        
+        .title{
+            color: var(--white);
+            font-size: var(--fourty-px);
+            margin-bottom: var(--twelve-px);
+        }
+
+        .subTitle{
+            color: var(--white);
+            font-size: var(--twenty-four-px);
+        }
+
+        .form{
+            display: flex;
+            width: 100%;
+            font-size: var(--fourty-px);
+            flex-direction: column;
+            align-items: center;
+            .fieldContainer{
+                width: 100%;
+                display: flex;
+                justify-content: space-evenly;
+            }
+            .input{
+                transition: all .5s ease;
+                text-align: center;
+                width: 45%;
+                color: var(--black);
+                font-size: var(--fourty-px);
+                margin-bottom: var(--twenty-px);
+                border: var(--two-px) solid var(--white);
+                border-radius: var(--five-px);
+                cursor: pointer;
+            }
+            .input:hover{
+                background-color: var(--white);
+                color: var(--black);
+                padding: var(--five-px) var(--twenty-px) var(--five-px) var(--twenty-px);
+                border: var(--two-px) solid var(--black);
+            }
+            .input::placeholder{
+                color: var(--gray);
+            }
+            .input:focus{
+                background-color: var(--white);
+                color: var(--black);
+                padding: var(--five-px) var(--twenty-px) var(--five-px) var(--twenty-px);
+            }
+        }
+
+        .buttons-layer{
+            display: flex;
+            align-items: center;
+            width: 90%;
+            justify-content: space-around;
+            flex-direction: row;
+        }
+
+        .userData{
+            margin-bottom: var(--fourty-px);
+        }
+
+        .passportData{
+            margin-bottom: var(--fourty-px);
+        }
+
+        .emailData{
+            margin-bottom: var(--fourty-px);
+        }
+    }
+}
+
+.background{
+    display: none;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: var(--max-weight);
+    height: auto;
+    #video{
+        width: 100%;
+        height: 100%;
+    }
+}
