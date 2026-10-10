@@ -4,6 +4,7 @@
               type="text" 
               name="email" 
               placeholder="{{ $field_email }}"
+              @disabled($staticExport ?? false)
               oninput="checkInput(this)"
               autocomplete="off"/> 
 
@@ -12,6 +13,7 @@
               type="password" 
               name="pass" 
               placeholder="{{ $field_password }}"
+              @disabled($staticExport ?? false)
               oninput="checkInput(this)"
               autocomplete="off"/>    
 </div>   

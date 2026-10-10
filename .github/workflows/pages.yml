@@ -1,11 +1,8 @@
-name: Deploy static page to GitHub Pages
+name: Build and deploy Synergy to GitHub Pages
 
 on:
   push:
     branches: [main]
-    paths:
-      - "docs/**"
-      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -22,10 +19,37 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: bcmath, ctype, fileinfo, mbstring, pdo_sqlite, xml
+          coverage: none
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress --no-dev --optimize-autoloader
+
+      - name: Install JavaScript dependencies
+        run: npm ci
+
+      - name: Build frontend assets
+        run: npm run build
+
+      - name: Render Laravel pages as static HTML
+        run: php scripts/export-static-pages.php
+        env:
+          PAGES_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+
       - name: Upload static site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs
+          path: dist
 
   deploy:
     environment:
